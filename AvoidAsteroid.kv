@@ -1,0 +1,209 @@
+<AvoidAsteroid>:
+    Background:
+        id: background
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                texture: self.stary_background
+                source: 'SpaceBackground.png'
+                tex_coords: [0, 1, 1, 1, 1, 0, 0, 0]
+                
+    
+    RelativeLayout:
+        size: self.size
+        pos: self.pos
+
+        AsyncImage:
+            id: spaceship
+            source: 'images/test_ship.gif' 
+            anim_delay: 0
+            size_hint: (None, None)
+            size: (self.parent.width * 0.20, self.parent.height * 0.30)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        AsyncImage:
+            id: explode
+            source: 'images/explosion.gif' 
+            size_hint: (None, None)
+            size: (self.parent.width * 0.80, self.parent.height * 0.80)
+            allow_stretch: True
+            keep_ratio: True
+            
+        AsyncImage:
+            id: asteroid_1
+            source: 'images/Brown_Ore1.gif'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.17)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+    
+        AsyncImage:
+            id: asteroid_2
+            source: 'images/Brown_Ore1.gif'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.17)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        AsyncImage:
+            id: asteroid_3
+            source: 'images/Brown_Ore1.gif'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.15)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        AsyncImage:
+            id: asteroid_4
+            source: 'images/Brown_Ore1.gif'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.14)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        AsyncImage:
+            id: asteroid_5
+            source: 'images/Brown_Ore1.gif'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.14)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        AsyncImage:
+            id: ys
+            source: 'images/star.png'
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.18)
+            keep_ratio: True
+
+        AsyncImage:
+            id: hg
+            source: 'images/hourglass.gif'
+            size_hint: (None, None)
+            size_hint: (None, None)
+            size: (self.parent.width * 0.12, self.parent.height * 0.15)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+        
+        AsyncImage:
+            id: coin
+            source: 'images/coin.gif'
+            size_hint: (None, None)
+            size_hint: (None, None)
+            size: (self.parent.width * 0.05, self.parent.height * 0.07)  # Adjust the scaling factor as needed
+            allow_stretch: True
+            keep_ratio: True
+
+        Widget:
+            size_hint: (1, .1)
+            pos_hint: {'center_x': 0.5, 'center_y': .05}
+            canvas.before:
+                Color:
+                    rgba: 0.189, 0.198, 0.201, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        Widget:
+            size_hint: (1, .1)
+            pos_hint: {'center_x': 0.5, 'center_y': .95}
+            canvas.before:
+                Color:
+                    rgba: 0.189, 0.198, 0.201, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Label:
+            id: Score
+            text: 'Score: 0'
+            size_hint_y: None
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'bottom'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+            font_size: min(self.height, self.width) / 2
+            font_name: 'fonts/PixelSans.ttf'
+            color: 1,1,1,1
+        
+        AsyncImage:
+            id: immunity_timer
+            source: 'images/star.png'
+            size_hint: None, None
+            size: root.width * 0.10, root.height * 0.10
+            pos_hint: {'center_x': 0.9, 'center_y': 0.95}
+        
+        AsyncImage:
+            id: slow_timer
+            source: 'images/hourglass.gif'
+            size_hint: None, None
+            size: root.width * 0.10, root.height * 0.08
+            pos_hint: {'center_x': 0.7, 'center_y': 0.95}
+        
+        AsyncImage:
+            id: coins
+            source: 'images/coin.gif'
+            size_hint: None, None
+            size: root.width * 0.05, root.height * 0.10
+            allow_stretch: True
+            pos_hint: {'center_x': 0.1, 'center_y': 0.95}
+            padding: [10,0,10,0]
+
+        Label:
+            id: coins_collected
+            text: '0'
+            halign: 'center'
+            valign: 'bottom'
+            pos_hint: {'center_x': 0.2, 'center_y': 0.95}
+            font_name: 'fonts/PixelSans.ttf'
+            font_size: '45sp'
+            color: 0.925, 0.792, 0.066, 1
+            padding: [10,0,10,0]
+
+
+        Button:
+            id: play_again
+            size_hint: None, None
+            size: root.width * 0.4, root.height * 0.10
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: play_again_image
+                source: 'images/play.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True
+
+        Button:
+            id: game_back_btn
+            size_hint: None, None
+            size: root.width * 0.15, root.height * 0.07
+            pos_hint: {'center_x': 0.09, 'center_y': 0.15}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: game_back_btn_image
+                source: 'images/back_button.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True   
+        
+    Label
+        id: game_over
+        text: 'GAME OVER'
+        font_name: 'fonts/PixelSans.ttf'
+        pos_hint: {'center_x': .50, 'center_y': .90}
+        font_size: root.height / 5 if root.height < root.width else root.width / 5
+        color: 1, 1, 1, 0
+        size_hint: None, None
+        size: self.texture_size
+        
+    

@@ -1,0 +1,127 @@
+<Background>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            texture: self.stary_background
+
+<StartScreen>:
+    Background:
+        id: start_background
+        size: root.size
+        pos: root.pos
+
+    RelativeLayout:
+        size: root.size
+        pos: root.pos
+        
+        Widget:
+            size_hint_y: None
+            height: root.height * 0.1
+            pos_hint: {'center_x': 0.5, 'bottom': 0}
+            
+            AsyncImage:
+                id: bottom_menu
+                source: 'images/banners/gray_banner.png'
+                size_hint: None, None
+                size: self.parent.width + 10, self.parent.height
+                pos: self.parent.pos
+                allow_stretch: True
+                keep_ratio: False
+
+        Label:
+            id: high_score_label
+            text: "HIGH SCORE: 0"
+            size_hint_y: None
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'bottom'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+            font_size: min(self.height, self.width) / 2
+            font_name: 'fonts/PixelSans.ttf'
+            color: 1,1,1,1
+
+
+    AsyncImage:
+        id: game_banner
+        source: 'images/banners/banner.png'
+        pos_hint: {'center_x': .50, 'center_y': .90}
+        size_hint:(None, None)
+        size: (self.parent.width * 0.80, self.parent.height * 0.45)  # Adjust the scaling factor as needed
+        allow_stretch: True
+        keep_ratio: True
+
+
+    RelativeLayout:
+        size: root.size
+        pos: root.pos
+
+        Button:
+            id: start_button
+            size_hint: None, None
+            size: root.width * 0.4, root.height * 0.10
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: start_button_image
+                source: 'images/play.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True
+
+
+        Button:
+            id: game_info
+            size_hint: None, None
+            size: root.width * 0.1, root.height * 0.07
+            pos_hint: {'center_x': 0.09, 'center_y': 0.15}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: game_info_image
+                source: 'images/game_info.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True
+        Button:
+            id: sound_button
+            size_hint: None, None
+            size: root.width * 0.1, root.height * 0.07
+            pos_hint: {'center_x': 0.9, 'center_y': 0.15}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: sound_toggle
+                source: 'images/sound_on.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True
+
+        Button:
+            id: shopping_button_background
+            size_hint: None, None
+            size: root.width * 0.1, root.height * 0.07
+            pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+            background_color: 0, 0, 0, 0  # Ensure the Button is transparent
+            on_press: root.on_button_press(self)
+
+            AsyncImage:
+                id: shopping_button
+                source: 'images/shopping_cart.png'
+                size_hint: None, None
+                size: self.parent.size  # Adjusted to size relative to the Button
+                pos: self.parent.pos  # Adjusted to position relative to the Button
+                allow_stretch: True
+                keep_ratio: True
+
+                    

@@ -1,0 +1,193 @@
+<Background>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            texture: self.stary_background
+
+<GameStore>
+    Background:
+        id: start_background
+        size: root.size
+        pos: root.pos
+
+    RelativeLayout:
+        size: root.size
+        pos: root.pos
+
+    Widget:
+        size_hint_y: None
+        height: root.height * 0.15
+        pos_hint: {'center_x': 0.5, 'center_y': 1}
+            
+        AsyncImage:
+            id: bottom_menu
+            source: 'images/banners/gray_banner.png'
+            size_hint: None, None
+            size: self.parent.width + 10, self.parent.height
+            pos: self.parent.pos
+            allow_stretch: True
+            keep_ratio: False
+
+    BoxLayout:
+        orientation: 'vertical'  # Set orientation to 'vertical' or 'horizontal'
+        padding: [20, root.height * .1, 20, 10]  # Padding around the root layout [left, top, right, bottom]
+        spacing: root.height * .1  # Space between widgets
+        background_color: 1,1,1,1
+
+        # Top row with images
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: root.width * .01  # Space between images
+            spacing: root.height * .01
+
+            # Common Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                AsyncImage:
+                    id: common_spaceship_image
+                    source: 'images/shop_items/common_spaceship.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button:
+                    id: common_spaceship
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+
+            # Uncommon Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                AsyncImage:
+                    id: uncommon_spaceship_image
+                    source: 'images/shop_items/uncommon_spaceship.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button: 
+                    id: uncommon_spaceship
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+            
+            # Uncommon Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                AsyncImage:
+                    id: epic_spaceship_image
+                    source: 'images/shop_items/epic_spaceship.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button: 
+                    id: epic_spaceship
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: root.width * .01  # Space between images
+            spacing: root.height * .01
+
+            # Common Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                AsyncImage:
+                    id: common_spaceship_1_image
+                    source: 'images/shop_items/common_spaceship_1.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button: 
+                    id: common_spaceship_1
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+
+            # Uncommon Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                AsyncImage:
+                    id: uncommon_spaceship_1_image
+                    source: 'images/shop_items/uncommon_spaceship_1.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button: 
+                    id: uncommon_spaceship_1
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+            
+            # Uncommon Spaceship
+            RelativeLayout:
+                padding: [10, 10, 10, 10]  # Padding around the image
+                size_hint: 0.4, 1
+
+                
+                AsyncImage:
+                    id: legendary_spaceship_image
+                    source: 'images/shop_items/Legendary_spaceship_1.png'
+                    size_hint: 1, 1
+                    allow_stretch: True
+                    keep_ratio: True
+
+                Button: 
+                    id: legendary_spaceship
+                    size_hint: .5, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                    background_normal: ''
+                    background_color: 1,1,1,0
+                    on_press: root.on_button_press(self)
+
+
+        # Back Button
+        BoxLayout:
+            padding: [5, 5, 5, 5]  # Padding around the back button
+            size_hint: 0.3, 0.33  # Take up 10% of the height
+            pos_hint: {'center_x': 0.5, 'center_y': 0.20}
+
+            Button:
+                id: store_back_btn
+                size_hint: 1, 1
+                background_color: 1, 1, 1, 0
+                pos: self.parent.pos
+                
+                on_press: root.on_button_press(self)
+                
+
+                AsyncImage:
+                    source: 'images/back_button.png'
+                    size_hint: None, None
+                    size: self.parent.width, self.parent.height
+                    pos: self.parent.pos
+                    allow_stretch: True
+                    keep_ratio: False
+                    
